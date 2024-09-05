@@ -65,13 +65,12 @@ export const formatDateTime = (dateString: Date) => {
   };
 };
 
-export function formatAmount(amount: number): string {
+export function formatAmount(amount: number, currency: string = "USD"): string {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD",
+    currency: currency,
     minimumFractionDigits: 2,
   });
-
   return formatter.format(amount);
 }
 

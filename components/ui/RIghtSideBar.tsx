@@ -3,7 +3,7 @@ import Image from "next/image";
 import plus from "../../icons/plus.svg";
 import Link from "next/link";
 import BankCard from "./BankCard";
-
+import { useRouter } from "next/router";
 const RIghtSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
   return (
     <aside className="right-sidebar">
@@ -35,7 +35,7 @@ const RIghtSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={`${user.firstName} ${user.lastName}`}
+                userName={user.name}
                 showBalance={false}
               />
             </div>
@@ -44,7 +44,7 @@ const RIghtSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
                 <BankCard
                   key={banks[1].$id}
                   account={banks[1]}
-                  userName={`${user.firstName} ${user.lastName}`}
+                  userName={user.name}
                   showBalance={false}
                 />
               </div>

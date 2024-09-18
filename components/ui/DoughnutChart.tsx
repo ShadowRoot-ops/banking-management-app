@@ -7,15 +7,17 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
+  const accountNames = accounts.map((a) => a.name);
+  const balances = accounts.map((a) => a.currentBalance);
   const data = {
     datasets: [
       {
         label: "Banks",
-        data: [1250, 2500, 3750],
-        backgroundColor: ["#4BC0C0", "#FF9F40", "#9966FF"],
+        data: balances,
+        backgroundColor: ["#0747b6", "#2265d8", "#2f91fa"],
       },
     ],
-    labels: ["Bank1", "Bank 2", "Bank 3"],
+    labels: accountNames,
   };
 
   return (

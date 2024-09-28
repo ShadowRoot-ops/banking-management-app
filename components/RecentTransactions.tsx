@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BankTabItem } from "./BankTabItem";
+import BankInfo from "./BankInfo";
+import TransactionsTable from "./TransactionsTable";
 
 const RecentTransactions = ({
   accounts,
@@ -49,7 +51,14 @@ const RecentTransactions = ({
             value={account.appwriteItemId}
             key={account.id}
             className="space-y-4"
-          ></TabsContent>
+          >
+            <BankInfo
+              account={account}
+              appwriteItemId={appwriteItemId}
+              type="full"
+            />
+            <TransactionsTable transactions={transactions} />
+          </TabsContent>
         ))}
       </Tabs>
     </section>

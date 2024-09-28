@@ -27,7 +27,7 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
             subtext="Access and manage your account and transaction efficiently"
           />
           <TotalBalanceBox
-            accounts={[accountsData]}
+            accounts={accountsData}
             totalBanks={accounts?.totalBanks}
             totalCurrentBalance={accounts?.totalCurrentBalance}
           />
@@ -41,7 +41,7 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
       </div>
       <RIghtSideBar
         user={loggedIn}
-        transactions={[accounts?.transactions]}
+        transactions={accounts?.transactions}
         banks={accountsData?.slice(0, 2)}
       />
     </section>
